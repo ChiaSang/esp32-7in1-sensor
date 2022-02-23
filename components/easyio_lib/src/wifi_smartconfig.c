@@ -199,7 +199,7 @@ static void event_handler(void* arg, esp_event_base_t event_base,
 }
 
 // 初始化WIFI。配置 SmartConfig 事件回调、启动WIFI、从NVS读取SSID密码，密码错误后自动切换SmartConfig。无需额外的按键辅助配网。
-void initialise_wifi_smartconfig(void)
+void smartconfigInit(void)
 {
     // 初始化存储着 SmartConfig 信息的NVS
     nvs_smartconfig_init();

@@ -182,7 +182,7 @@ void ntpInit()
         if (timeinfo.tm_year < (2021 - 1900))
         {
             ESP_LOGW(TAG, "syncing system time failed. System will be restart after 5 seconds.");
-            for (int i = 5; i >= 0; i--)
+            for (int i = 5; i > 0; i--)
             {
                 ESP_LOGW(TAG, "Restarting in %d seconds...", i);
                 vTaskDelay(1000 / portTICK_PERIOD_MS);
@@ -590,8 +590,7 @@ void app_main(void)
     led_init(LED, 0);
     // nvs_flash_erase();
 
-    initialise_wifi_smartconfig();
-
+    smartconfigInit();
     ntpInit();
 
     // struct addrinfo hint;

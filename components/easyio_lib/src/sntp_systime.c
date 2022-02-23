@@ -34,7 +34,7 @@ void obtain_time(void)
     time_t now = 0;
     struct tm timeinfo = {0};
     int retry = 0;
-    const int retry_count = 10;
+    const int retry_count = 5;
     while (sntp_get_sync_status() == SNTP_SYNC_STATUS_RESET && ++retry < retry_count)
     {
         ESP_LOGI(TAG, "Waiting for system time to be set... (%d/%d)", retry, retry_count);
